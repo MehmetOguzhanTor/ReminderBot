@@ -2,10 +2,14 @@ import telebot
 import os
 from dotenv import load_dotenv
 
-##load_dotenv()
-##BOT_TOKEN = os.getenv("6902877477:AAExDyJA6Z8QBH0PloXnVMo-VitUurjZ5MI")
+try:
+    load_dotenv()
+except Exception as e:
+    print(f"Error loading .env file: {e}")
 
-bot = telebot.TeleBot("6902877477:AAExDyJA6Z8QBH0PloXnVMo-VitUurjZ5MI")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+bot = telebot.TeleBot(BOT_TOKEN)
 
 # Handler for '/start' command
 @bot.message_handler(commands=['start'])
